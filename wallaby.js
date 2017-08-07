@@ -1,5 +1,7 @@
 const wallabyWebpack = require('wallaby-webpack');
 const path = require('path');
+const AureliaPlugin = require('aurelia-webpack-plugin').AureliaPlugin;
+const DefinePlugin = require('webpack').DefinePlugin;
 
 module.exports = function (wallaby) {
   const wallabyPostprocessor = wallabyWebpack({
@@ -9,7 +11,11 @@ module.exports = function (wallaby) {
         path.join(wallaby.projectCacheDir, 'src')
       ],
       alias: {}
-    }
+    },
+    plugins: [
+      new DefinePlugin({AURELIA_WEBPACK_2_0: undefined}),
+      new AureliaPlugin()
+    ]
   });
 
   return {

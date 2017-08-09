@@ -15,7 +15,8 @@ module.exports = function (wallaby) {
     module: {
       rules: [
         {test: /\.html$/i, loader: 'html-loader'},
-        {test: /\.css$/, use: ['style-loader', 'css-loader']}
+        {test: /\.css$/i, issuer: [{not: [{test: /\.html$/i}]}], use: ['style-loader', 'css-loader']},
+        {test: /\.css$/i, issuer: [{test: /\.html$/i}], use: 'css-loader'},
       ]
     },
     plugins: [

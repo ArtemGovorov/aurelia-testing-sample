@@ -12,6 +12,7 @@ module.exports = function (wallaby) {
       ],
       alias: {}
     },
+    module: { rules: [ { test: /\.html$/i, loader: 'html-loader' } ] },
     plugins: [
       new DefinePlugin({AURELIA_WEBPACK_2_0: undefined}),
       new AureliaPlugin()
@@ -21,6 +22,7 @@ module.exports = function (wallaby) {
   return {
     files: [
       {pattern: 'src/**/*.js', load: false},
+      {pattern: 'src/**/*.html', load: false},
       {pattern: 'test/unit/setup.js', load: false}
     ],
     tests: [

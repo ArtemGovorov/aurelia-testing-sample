@@ -10,8 +10,8 @@ describe('MyComponent', () => {
       .withResources(
         // PLATFORM.moduleName('resources/elements/another.html') &&
         // PLATFORM.moduleName('resources/elements/another') &&
-        PLATFORM.moduleName('resources/elements/_my-component.html') &&
-        PLATFORM.moduleName('resources/elements/_my-component')
+        PLATFORM.moduleName('resources/elements/my-component.html') &&
+        PLATFORM.moduleName('resources/elements/my-component')
       )
       .inView('<my-component name.bind="someProperty"></my-component>')
       .boundTo({ someProperty: 'Foo' });

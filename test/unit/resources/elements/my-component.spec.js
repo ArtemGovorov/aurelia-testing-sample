@@ -19,7 +19,8 @@ describe('MyComponent', () => {
     component.bootstrap(aurelia => {
       return aurelia.use
         .standardConfiguration()
-        .feature(PLATFORM.moduleName('resources/index'));
+        .defaultResources()
+        .feature(PLATFORM.moduleName('resources'));
     });
   });
 

@@ -8,7 +8,7 @@ describe('MyComponent', () => {
   beforeEach(() => {
     component = StageComponent
       .withResources(
-        // PLATFORM.moduleName('resources/elements/my-component.css') &&
+        PLATFORM.moduleName('resources/elements/my-component.css') &&
         PLATFORM.moduleName('resources/elements/my-component.html') &&
         PLATFORM.moduleName('resources/elements/my-component')
       )

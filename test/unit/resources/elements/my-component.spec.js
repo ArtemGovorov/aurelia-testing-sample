@@ -7,9 +7,20 @@ describe('MyComponent', () => {
 
   beforeEach(() => {
     component = StageComponent
-      .withResources(PLATFORM.moduleName('my-component.html') && PLATFORM.moduleName('my-component'))
+      .withResources(
+        // PLATFORM.moduleName('resources/elements/another.html') &&
+        // PLATFORM.moduleName('resources/elements/another') &&
+        PLATFORM.moduleName('resources/elements/_my-component.html') &&
+        PLATFORM.moduleName('resources/elements/_my-component')
+      )
       .inView('<my-component name.bind="someProperty"></my-component>')
       .boundTo({ someProperty: 'Foo' });
+
+    component.bootstrap(aurelia => {
+      return aurelia.use
+        .standardConfiguration()
+        .feature(PLATFORM.moduleName('resources/index'));
+    });
   });
 
   afterEach(() => {
